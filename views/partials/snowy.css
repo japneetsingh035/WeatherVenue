@@ -1,0 +1,9 @@
+.element{
+    border-radius: 50%;
+    animation-name: falling;
+    animation-timing-function: linear;
+}
+@keyframes falling {
+    0% {top:-100px; }
+    100% {top:100vh; transform: translateX(-100vh) }
+}

@@ -1,0 +1,38 @@
+<script>
+function createSnowFlake() {
+    function getRandom (min, max) {
+        return ~~(Math.random() * (max - min + 1)) + min;
+    }
+    let viewportwidth = window.innerWidth;
+    this.delete = function() {
+        clearInterval(this.interval);
+        let classes = document.querySelectorAll('.element');
+        for (let i = 0; i < classes.length; i++) {
+            classes.item(i).remove();
+        }
+    }
+    this.start = function() {
+        this.interval = setInterval(function () {
+        let rand = getRandom(2, 32);
+        let size = rand;
+        let time = 3.0 / (rand * 0.1);
+        let blur = (Math.abs(rand - 8));
+        blur = ((blur < 4) ? 0 : blur);
+        let el = document.createElement("div");
+        document.body.appendChild(el);
+        el.style.zIndex = String(100 + size);
+        el.className = "element";
+        el.style.width = size + "px";
+        el.style.height = size + "px";
+        el.style.left = (Math.random() * (viewportwidth * 1.5)) + "px";
+        el.style.filter = "blur(" + blur + "px)";
+        el.style.animationDuration = time + "s";
+        setTimeout(function () {
+            el.remove();
+        }, time * 1000);
+
+    }, 50);
+    }
+}
+snow = new createSnowFlake();
+</script>

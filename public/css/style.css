@@ -6,14 +6,24 @@ html {
 html[data-theme='dark'] {
   background-color: #2a2a3c !important;
 }
-
+.element{
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  animation-name: falling;
+  animation-timing-function: linear;
+}
+@keyframes falling {
+  0% {top:-100px; }
+  100% {top:100vh; transform: translateX(-100vh) }
+}
 body {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
   background-color: #E5EAF5;
-  position: sticky
+  position: sticky;
 }
 
 body[data-theme="dark"] {
